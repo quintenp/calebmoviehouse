@@ -1,0 +1,16 @@
+{
+  "name": "caleb-movie-house",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "webpack-dev-server --config ./webpack.dev.config.js"
+  },
+  "dependencies": {
+    "react": "^16.8.1",
+    "react-dom": "^16.8.1",
+    "react-router": "^4.3.1",
+    "webpack": "^4.29.3",
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.1.14"
+  },
+  "devDependencies": {}
+}
