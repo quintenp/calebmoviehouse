@@ -18,7 +18,6 @@ class App extends React.Component {
                         <Link to="/library">Library</Link>
                     </nav>
 
-
                     <Switch>
                         <Route exact path="/" component={HomePage} />
                         <Route path="/add" component={AddPage} />
