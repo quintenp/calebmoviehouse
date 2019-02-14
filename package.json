@@ -8,7 +8,8 @@
     "lint": "node_modules/.bin/esw webpack.config.* src tools",
     "lint:watch": "npm run lint -- --watch",
     "test": "mocha --reporter progress tools/testSetup.js \"src/**/*.test.js\"",
-    "test:watch": "npm run test -- --watch"
+    "test:watch": "npm run test -- --watch",
+    "build": "webpack --config webpack.config.prod.js"
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
@@ -62,6 +63,7 @@
     "style-loader": "0.13.1",
     "url-loader": "^1.1.2",
     "webpack": "^4.29.3",
+    "webpack-cli": "^3.2.3",
     "webpack-dev-middleware": "^3.5.2",
     "webpack-hot-middleware": "^2.24.3"
   }
