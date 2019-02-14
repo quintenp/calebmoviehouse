@@ -2,9 +2,14 @@ import webpack from 'webpack';
 import path from 'path';
 
 export default {
-    entry: './src/index.js',
     devtool: 'inline-source-map',
     mode: 'development',
+    entry: [
+        'eventsource-polyfill',
+        'webpack-hot-middleware/client?reload=true',
+        path.resolve(__dirname, 'src/index')
+    ],
+    target: 'web',
     output: {
         path: path.resolve(__dirname, 'dist'),
         publicPath: '/',
@@ -28,7 +33,42 @@ export default {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: ['@babel/env','@babel/react']
+                        presets: ['@babel/env', '@babel/react']
+                    }
+                }
+            },{
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
+            },{
+                test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
+                use: ['file-loader']
+            },{
+                test: /\.(woff|woff2)$/,
+                use: {
+                    loader: 'url-loader',
+                    options: {
+                        prefix: 'font',
+                        limit: 5000
+                    }
+                }
+            },{
+                test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
+                use: {
+                    loader: 'url-loader',
+                    options: {
+                        prefix: 'font',
+                        limit: 10000,
+                        mimetype: 'application/octet-stream'
+                    }
+                }
+            },{
+                test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+                use: {
+                    loader: 'url-loader',
+                    options: {
+                        prefix: 'font',
+                        limit: 10000,
+                        mimetype: 'image/svg+xml'
                     }
                 }
             }
