@@ -6,10 +6,10 @@
     margin: 0 auto;
   }
   
-  a.active {
-    color: orange;
-  }
   
   nav {
     padding-top: 20px;
+    padding-bottom: 20px;
   }
+
+ 
