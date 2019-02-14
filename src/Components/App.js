@@ -1,22 +1,16 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, NavLink } from 'react-router-dom';
 import AddPage from './Add/AddPage';
 import HomePage from './Home/HomePage';
 import LibraryPage from './Library/LibraryPage';
+import MastHead from './Common/MastHead';
 
 class App extends React.Component {
     render() {
         return (
             <BrowserRouter>
                 <div className="container-fluid">
-                    <h1>Calebs Movie House</h1>
-                    <nav>
-                        <Link to="/">Home</Link>
-                        {' '}
-                        <Link to="/add">Add</Link>
-                        {' '}
-                        <Link to="/library">Library</Link>
-                    </nav>
+                    <MastHead />
 
                     <Switch>
                         <Route exact path="/" component={HomePage} />
