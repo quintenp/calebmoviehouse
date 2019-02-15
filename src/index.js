@@ -1,8 +1,17 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
 import App from './Components/App';
+import { Provider } from "react-redux";
+import configureStore from "./store/index";
 import './styles/styles.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/toastr/build/toastr.min.css';
 
-ReactDOM.render(<App />, document.getElementById('app'));
+const store = configureStore();
+
+render(
+    <Provider store={store}>
+        <App />
+    </Provider>
+    ,document.getElementById('app')
+);

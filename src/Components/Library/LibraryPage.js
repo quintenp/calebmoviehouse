@@ -1,11 +1,32 @@
 import React from 'react';
+import { connect } from "react-redux";
+import PropTypes from 'prop-types';
+import VideoList from './VideoLinkList';
 
 class LibraryPage extends React.Component {
+    constructor(props, context) {
+        super(props, context);
+
+        this.state = {};
+    }
+
     render() {
+        const { videos } = this.props;
         return (
-            <div><p>View Page for links.</p></div>
+            <div>
+                <h3>Video Links</h3>
+                <VideoList videos={videos} />
+            </div>
         );
     }
 }
 
-export default LibraryPage;
+LibraryPage.propTypes = {
+    videos: PropTypes.array.isRequired
+};
+
+const mapStateToProps = state => {
+    return { videos: state.videos };
+};
+
+export default connect(mapStateToProps)(LibraryPage);

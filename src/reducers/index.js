@@ -1,16 +1,8 @@
-import { ADD_VIDEO } from "../constants/actionTypes";
+import { combineReducers } from 'redux';
+import videos from '../reducers/videoReducer';
 
-const initialState = {
-    videos: []
-};
-
-function rootReducer(state = initialState, action) {
-    switch (action.type) {
-        case ADD_VIDEO: Object.assign({}, state, {
-            videos: state.videos.concat(action.payload)
-        });
-    }
-    return state;
-}
+const rootReducer = combineReducers({
+    videos
+});
 
 export default rootReducer;

@@ -11,12 +11,11 @@ class App extends React.Component {
             <BrowserRouter>
                 <div className="container-fluid">
                     <MastHead />
-
                     <Switch>
                         <Route exact path="/" component={HomePage} />
                         <Route path="/add" component={AddPage} />
                         <Route path="/library" component={LibraryPage} />
-                        <Route component={HomePage}/>
+                        <Route component={HomePage} />
                     </Switch>
                 </div>
             </BrowserRouter>
