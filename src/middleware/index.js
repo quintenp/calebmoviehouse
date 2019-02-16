@@ -8,11 +8,11 @@ export function forbiddenWordsMiddleware({ dispatch }) {
         return function (action) {
             if (action.type === ADD_VIDEO) {
                 const foundWord = forbiddenWords.filter(word =>
-                    action.payload.link.includes(word)
+                    action.payload.link.toLowerCase().includes(word)
                 );
 
                 if (foundWord.length) {
-                    return dispatch(foundBadWord("Found Bad Words - " + action.payload.link));
+                    return dispatch(foundBadWord("Video not Saved: Found Bad Words - " + action.payload.link));
                 }
             }
 
