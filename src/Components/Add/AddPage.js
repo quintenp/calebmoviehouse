@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from "react-redux";
 import { addVideo } from "../../actions/index";
+import PropTypes from 'prop-types';
 
 class AddPage extends React.Component {
     constructor() {
@@ -42,6 +43,10 @@ class AddPage extends React.Component {
         );
     }
 }
+
+AddPage.propTypes = {
+    addVideo: PropTypes.func.isRequired
+};
 
 function mapDispatchToProps(dispatch) {
     return {

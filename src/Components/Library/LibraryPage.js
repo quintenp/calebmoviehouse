@@ -11,7 +11,7 @@ class LibraryPage extends React.Component {
     }
 
     render() {
-        const { videos } = this.props;
+        const { videos } = this.props.videos;
         return (
             <div>
                 <h3>Video Links</h3>
@@ -22,7 +22,7 @@ class LibraryPage extends React.Component {
 }
 
 LibraryPage.propTypes = {
-    videos: PropTypes.array.isRequired
+    videos: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => {
