@@ -6,7 +6,6 @@ module.exports = {
     mode: 'production',
     entry: [
         'eventsource-polyfill',
-        'webpack-hot-middleware/client?reload=true',
         path.resolve(__dirname, 'src/index')
     ],
     target: 'web',
@@ -21,8 +20,6 @@ module.exports = {
         port: 9005
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoEmitOnErrorsPlugin()
     ],
     module: {
         rules: [
