@@ -1,4 +1,5 @@
 import React from 'react';
+import uuidv1 from "uuid";
 import { connect } from "react-redux";
 import { addVideo } from "../../actions/index";
 import PropTypes from 'prop-types';
@@ -23,8 +24,8 @@ class AddPage extends React.Component {
         event.preventDefault();
 
         const { link } = this.state;
-
-        this.props.addVideo({ link });
+        const id = uuidv1();
+        this.props.addVideo({ link, id });
         this.setState({ link: "" });
     }
 
