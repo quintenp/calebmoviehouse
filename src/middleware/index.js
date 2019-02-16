@@ -12,7 +12,7 @@ export function forbiddenWordsMiddleware({ dispatch }) {
                 );
 
                 if (foundWord.length) {
-                    return dispatch(foundBadWord({ badWordMessage: "Found Bad Words in - " + action.payload.link }));
+                    return dispatch(foundBadWord("Found Bad Words in - " + action.payload.link));
                 }
             }
 

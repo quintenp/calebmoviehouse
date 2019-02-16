@@ -3,13 +3,15 @@ import uuidv1 from "uuid";
 import { connect } from "react-redux";
 import { addVideo } from "../../actions/index";
 import PropTypes from 'prop-types';
+import BadWordMessage from './BadWordMessage';
 
 class AddPage extends React.Component {
     constructor() {
         super();
 
         this.state = {
-            link: ""
+            link: "",
+            badWordMessage: {}
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -25,20 +27,26 @@ class AddPage extends React.Component {
 
         const { link } = this.state;
         const id = uuidv1();
+
         this.props.addVideo({ link, id });
-        this.setState({ link: "" });
+
+        this.setState(Object.assign({}, this.state, { link: "" }));
     }
 
     render() {
         const { link } = this.state;
+        const { badWordMessage } = this.props;
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>
                     <div className="form-group">
-                        <label htmlFor="link">Video Link</label>
-                        <input type="text" className="form-control" id="link" value={link} onChange={this.handleChange} />
+                        <label htmlFor="link">Video Link</label>                  
+                        <input type="text" className={"form-control " + (badWordMessage ? "is-invalid" : null)} id="link" value={link} onChange={this.handleChange} />
+                        <div className="invalid-feedback">
+                            {this.props.badWordMessage}
+                        </div>
                     </div>
-                    <button type="submit" className="btn btn-success btn-lg">SAVE</button>
+                    <button type="submit" className="btn btn-success btn-lg">Save</button>
                 </form>
             </div >
         );
@@ -46,7 +54,8 @@ class AddPage extends React.Component {
 }
 
 AddPage.propTypes = {
-    addVideo: PropTypes.func.isRequired
+    addVideo: PropTypes.func.isRequired,
+    badWordMessage: PropTypes.string.isRequired
 };
 
 function mapDispatchToProps(dispatch) {
@@ -55,4 +64,9 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-export default connect(null, mapDispatchToProps)(AddPage);
+const mapStateToProps = state => {
+    return { badWordMessage: state.videos.badWordMessage };
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddPage);
