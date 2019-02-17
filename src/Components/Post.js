@@ -16,8 +16,8 @@ export class Post extends Component {
         return (
             <ul className="list-group list-group-flush">
                 {this.props.videos.map(el => (
-                    <li className="list-group-item" key={el.id}>
-                        {el.title}
+                    <li className="list-group-item" key={el.id.videoId}>
+                        <img src={el.snippet.thumbnails.default.url} /><a href={"https://www.youtube.com/watch?v=" + el.id.videoId}>{el.snippet.title}</a>
                     </li>
                 ))}
             </ul>
@@ -26,7 +26,7 @@ export class Post extends Component {
 }
 
 function mapStateToProps(state) {
-    return { videos: state.videos.remoteVideos.slice(0,5) };
+    return { videos: state.videos.remoteVideos.slice(0, 5) };
 }
 
 Post.propTypes = {

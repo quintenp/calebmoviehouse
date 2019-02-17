@@ -15,10 +15,10 @@ class LibraryPage extends React.Component {
         const { videos } = this.props.videos;
         return (
             <div>
-                <h3>Video Links</h3>
+                <h3>Saved Videos</h3>
                 <VideoList videos={videos} />
 
-                <h3>External List</h3>
+                <h3>Current Top 5 Videos</h3>
                 <PostApi />
             </div>
         );
