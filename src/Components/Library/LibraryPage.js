@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from "react-redux";
 import PropTypes from 'prop-types';
 import VideoList from './VideoLinkList';
+import PostApi from '../Post';
 
 class LibraryPage extends React.Component {
     constructor(props, context) {
@@ -16,6 +17,9 @@ class LibraryPage extends React.Component {
             <div>
                 <h3>Video Links</h3>
                 <VideoList videos={videos} />
+
+                <h3>External List</h3>
+                <PostApi />
             </div>
         );
     }
