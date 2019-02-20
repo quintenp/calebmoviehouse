@@ -10,7 +10,7 @@ export function foundBadWord(payload) {
 
 export function getData() {
   return function (dispatch) {
-    return fetch("https://www.googleapis.com/youtube/v3/search?maxResults=5&part=snippet&q=babyshows", {method: 'GET'})
+    return fetch("https://cmh-videos.azurewebsites.net/youtube/popular", {method: 'GET'})
       .then(response => response.json())
       .then(json => {
         dispatch({ type: DATA_LOADED, payload: json });
