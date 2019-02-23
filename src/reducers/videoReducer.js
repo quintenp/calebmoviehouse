@@ -13,7 +13,7 @@ export default function videoReducer(state = initialState, action) {
         case FOUND_BAD_WORD:
             return Object.assign({}, state, { badWordMessage: action.payload });
         case DATA_LOADED:
-            return Object.assign({}, state, { remoteVideos: state.remoteVideos.concat(action.payload.items) });
+            return Object.assign({}, state, { remoteVideos: state.remoteVideos.concat(action.payload) });
         default: return state;
     }
 }

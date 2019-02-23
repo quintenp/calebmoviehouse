@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from "react-redux";
 import PropTypes from 'prop-types';
 import VideoList from './VideoLinkList';
-import PostApi from '../Post';
+import PopularVideos from '../Popular';
 
 class LibraryPage extends React.Component {
     constructor(props, context) {
@@ -18,8 +18,8 @@ class LibraryPage extends React.Component {
                 <h3>Saved Videos</h3>
                 <VideoList videos={videos} />
 
-                <h3>Current Top 5 Videos</h3>
-                <PostApi />
+                <h3>Current Popular Videos</h3>
+                <PopularVideos />
             </div>
         );
     }
